@@ -11,13 +11,13 @@ function Car(model, motor, price, year) {
    this.getPensionFund = () => {
       if (_price <= 12500) {
          _sumFund = _price * 0.03;
-         console.log(`Пенсійний фонд: ${_sumFund}$`);
-      } else if (12500 >= _price && _price <= 22000) {
+         console.log(`Пенсійний фонд: ${Math.round(_sumFund)}$`);
+      } else if (12500 >= _price || _price <= 22000) {
          _sumFund = _price * 0.04;
-         console.log(`Пенсійний фонд: ${_sumFund}$`);
+         console.log(`Пенсійний фонд: ${Math.round(_sumFund)}$`);
       } else if (_price >= 22000) {
          _sumFund = _price * 0.05
-         console.log(`Пенсійний фонд: ${_sumFund}$`);
+         console.log(`Пенсійний фонд: ${Math.round(_sumFund)}$`);
       } else {
          console.log("error");
       }
@@ -35,22 +35,22 @@ function Car(model, motor, price, year) {
    };
    this.getToll = () => {
       _sumToll = _price * 0.1;
-      console.log(`Мито: ${_sumToll}$`)
+      console.log(`Мито: ${Math.round(_sumToll)}$`)
    };
    this.getTax = () => {
       _sumTax = _price + _sumExcise + _sumToll;
       _sumTax *= 0.2;
-      console.log(`ПДВ: ${_sumTax}$`);
+      console.log(`ПДВ: ${Math.round(_sumTax)}$`);
    };
 
    this.getPriceCar = () => {
       _result = _sumExcise + _sumToll + _sumTax + _sumFund;
-      console.log(`Сума розтаможки авто: ${_result}$`);
+      console.log(`Сума розтаможки авто: ${Math.round(_result)}$`);
    };
 
    this.getAll = () => {
       _all = _price + _result;
-      console.log(`Цена авто с розтаможкою: ${_all}$`);
+      console.log(`Цена авто с розтаможкою: ${Math.round(_all)}$`);
    };
 }
 
@@ -61,7 +61,7 @@ Car.prototype._sumTax = 0;
 Car.prototype._result = 0;
 Car.prototype._all = 0;
 
-let car = [];
+let car;
 
 console.log("1 - Добавить авто ");
 console.log("2 - Посмотреть список авто");
@@ -74,15 +74,11 @@ while (!exit) {
    let menu = +prompt("Enter");
    switch (menu) {
       case 1: {
-         for (let i = 0; i < 2; i++) {
-            car[i] = new Car(prompt("модель автомобиля:"), parseFloat(prompt("Об'єм двигуна в см3:")), +prompt("цена автомобиля:"), +prompt("Год автомобиля:"));
-         }
+         car = new Car(prompt("модель автомобиля:"), parseFloat(prompt("Об'єм двигуна в см3:")), +prompt("цена автомобиля:"), +prompt("Год автомобиля:"));
          break;
       }
       case 2: {
-         for (let item of car) {
-            console.log(item.dislpay());
-         }
+         car.dislpay();
          break;
       }
       case 3: {
