@@ -1,5 +1,5 @@
 //============== ДЗ ============\\
-
+/*
 function Car(model, motor, price, year) {
    let _model = model;
    let _motor = motor;
@@ -54,14 +54,7 @@ function Car(model, motor, price, year) {
    };
 }
 
-Car.prototype._sumFund = 0;
-Car.prototype._sumExcise = 0;
-Car.prototype._sumToll = 0;
-Car.prototype._sumTax = 0;
-Car.prototype._result = 0;
-Car.prototype._all = 0;
-
-let car;
+let cars = [];
 
 console.log("1 - Добавить авто ");
 console.log("2 - Посмотреть список авто");
@@ -74,11 +67,13 @@ while (!exit) {
    let menu = +prompt("Enter");
    switch (menu) {
       case 1: {
-         car = new Car(prompt("модель автомобиля:"), parseFloat(prompt("Об'єм двигуна в см3:")), +prompt("цена автомобиля:"), +prompt("Год автомобиля:"));
+         cars[cars.length] = new Car(prompt("модель автомобиля:"), parseFloat(prompt("Об'єм двигуна в см3:")), +prompt("цена автомобиля:"), +prompt("Год автомобиля:"));
          break;
       }
       case 2: {
-         car.dislpay();
+         for (item of cars) {
+            item.dislpay();
+         }
          break;
       }
       case 3: {
@@ -100,3 +95,138 @@ while (!exit) {
       }
    }
 }
+
+let sum = new Function('n1', 'n2',
+   'return n1+n2');
+
+console.log(sum(5, 8))
+let square = new Function('x1',
+   'return x1**2');
+console.log(square(2))
+
+Function.prototype.hello = "hello";
+console.log(sum.hello)
+
+call() apply()
+*/
+
+/*
+function sum(x1, x2) {
+   return x1 + x2;
+}
+
+let res = sum.call(this, 3, 7)
+console.log(res);
+*/
+
+/*
+function User(name, age) {
+   this.name = name;
+   this.age = age;
+}
+
+let tom = new User("tom", 15);
+let timur = new User("timur", 15);
+
+
+function info() {
+   console.log("Ваше имя:" + this.name)
+}
+
+info.call(timur);
+*/
+
+/*
+function sum(x1, x2) {
+   return x1 + x2;
+}
+
+let res = sum.apply(this, [5, 2])
+console.log(res);
+*/
+
+/*
+function Car(model, color, speed = 0) {
+   this.model = model;
+   this.color = color;
+   this.speed = speed;
+}
+
+let audi = new Car('q4', 'red', 231)
+function display(speed) {
+   console.log(this.model, this.color, this.speed);
+}
+
+display.call(audi);
+*/
+
+/*
+function Human(name, age, eyes) {
+   this.name = name;
+   this.age = age;
+   this.eyes = eyes;
+   this.go = function () {
+      console.log(this.name + "start go");
+   }
+   this.work = function () {
+      console.log(this.name + " worked")
+   }
+   this.learn = function () {
+      console.log(this.name + " learn")
+   }
+}
+
+function Student(name, age, univer) {
+   Human.call(this, name, age, eyes = 3);
+   this.univer = univer;
+   this.work = function () {
+      console.log("error" + this.name + " learn")
+   }
+}
+
+function Employee(name, age, work) {
+   Human.call(this, name, age, work);
+   this.work = work;
+}
+
+let anton = new Human("anton", 12);
+let kiril_student = new Student("kirill", 16, "Metal");
+
+console.log(anton);
+console.log(kiril_student);
+
+anton.go();
+kiril_student.work();
+*/
+
+
+//Animal, dog, riba, popygai
+/*
+function Animal(eyes, animalName, age) {
+   this.eyes = eyes;
+   this.animalName = animalName;
+   this.age = age;
+   this.dev = "";
+   this.go = function () {
+      console.log(this.animalName + " может" + this.dev)
+   }
+}
+
+function Dog(eyes, animalName, age) {
+   Animal.call(this, eyes, animalName, age);
+   this.dev = "бежать"
+}
+
+function Fish(eyes, animalName, age) {
+   Animal.coll(this, eyes, animalName, age);
+   this.dev = "плыть";
+}
+
+function Popygai(eyes, animalName, age) {
+   Animal.coll(this, eyes, animalName, age);
+   this.dev = "летать";
+}
+
+let dog = new Dog(2, "sabaka", 13);
+dog.go();
+*/
