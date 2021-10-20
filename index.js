@@ -7,7 +7,15 @@ function Car(model, motor, price, year) {
    let _year = year;
    this.dislpay = function () {
       console.log(`${_model}: Мотор: ${_motor}, Цена:${_price} $, Год:${_year}`);
-   };
+   }
+}
+function CalculatorCar(sumFund = 0, sumExcise = 0, sumToll = 0, sumTax = 0, result = 0, all = 0) {
+   let _sumFund = sumFund;
+   let _sumExcise = sumExcise;
+   let _sumToll = sumToll;
+   let _sumTax = sumTax;
+   let _result = result;
+   let _all = all;
    this.getPensionFund = () => {
       if (_price <= 12500) {
          _sumFund = _price * 0.03;
@@ -54,6 +62,7 @@ function Car(model, motor, price, year) {
    };
 }
 
+let calculatorCar = [new CalculatorCar()];
 let cars = [];
 
 console.log("1 - Добавить авто ");
@@ -77,12 +86,6 @@ while (!exit) {
          break;
       }
       case 3: {
-         car.getPensionFund();
-         car.getExcise();
-         car.getToll();
-         car.getTax();
-         car.getPriceCar();
-         car.getAll();
          break;
       }
       case 4: {
@@ -95,7 +98,9 @@ while (!exit) {
       }
    }
 }
+*/
 
+/*
 let sum = new Function('n1', 'n2',
    'return n1+n2');
 
@@ -229,4 +234,47 @@ function Popygai(eyes, animalName, age) {
 
 let dog = new Dog(2, "sabaka", 13);
 dog.go();
+*/
+
+//======== ДЗ ========\\
+/*
+function Car(model, speed) {
+   this.model = model;
+   this.speed = speed;
+   this.display = function () {
+      console.log(`Модель: ${this.model}, Скорость: ${this.speed} км/год`)
+   }
+}
+
+function Calculator(meter = 0,) {
+   this.meters = meter;
+   result = (this.speed / 10) * 3;
+   resultOne = (this.speed / 10) * (this.speed / 10);
+   this.meters += result + resultOne;
+   console.log(`Модель: ${this.model}, Тормозной путь составляет: ${Math.round(this.meters)} м`);
+}
+
+function Audi(model, speed) {
+   Car.call(this, model, speed);
+}
+
+let audi = new Audi("Audi", 120);
+audi.display();
+Calculator.call(audi);
+
+function Mercedes(model, speed) {
+   Car.call(this, model, speed)
+}
+
+let mercedes = new Mercedes("Mercedes", 145);
+mercedes.display();
+Calculator.call(mercedes);
+
+function Porsche(model, speed) {
+   Car.apply(this, [model, speed]);
+}
+
+let porsche = new Porsche("Porsche", 82);
+porsche.display();
+Calculator.call(porsche);
 */
