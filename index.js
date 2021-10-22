@@ -17,7 +17,7 @@ function CalculatorCar(sumFund = 0, sumExcise = 0, sumToll = 0, sumTax = 0, resu
    let _sumTax = sumTax;
    let _result = result;
    let _all = all;
-   this.getPensionFund = () => {
+   getPensionFund = (car) => {
       if (_price <= 12500) {
          _sumFund = _price * 0.03;
          console.log(`Пенсійний фонд: ${Math.round(_sumFund)}$`);
@@ -57,14 +57,18 @@ function CalculatorCar(sumFund = 0, sumExcise = 0, sumToll = 0, sumTax = 0, resu
       console.log(`Сума розтаможки авто: ${Math.round(_result)}$`);
    };
 
-   this.getAll = () => {
+   this.getAll = (car) => {
+      s = getPensionFund(car)
       _all = _price + _result;
-      console.log(`Цена авто с розтаможкою: ${Math.round(_all)}$`);
+      //console.log(`Цена авто с розтаможкою: ${Math.round(_all)}$`);
+      return `Цена авто с розтаможкою: ${Math.round(_all)}$`
    };
 }
 
-let calculator = [];
+
 let cars = [];
+
+calculator = new CalculatorCar(6,2,3,3,2)
 
 console.log("1 - Добавить авто ");
 console.log("2 - Посмотреть список авто");
@@ -87,6 +91,9 @@ while (!exit) {
          break;
       }
       case 3: {
+         //nameMark = prompt
+         //for of перебирает все модели == name
+            //console.log(calculator.all(car))
          break;
       }
       case 4: {
@@ -237,7 +244,7 @@ dog.go();
 */
 
 //======== ДЗ ========\\
-
+/*
 function Car(model, speed) {
    this.model = model;
    this.speed = speed;
@@ -277,3 +284,101 @@ function Porsche(model, speed) {
 let porsche = new Porsche("Porsche", 82);
 porsche.display();
 Calculator.call(porsche);
+*/
+
+/*
+'use strict'
+function foo() {
+   var x = "x";
+   console.log(this.x);
+}
+
+var x = 'x15';
+foo();
+*/
+
+/*
+let person = {
+   age: 15,
+   foo: function () {
+      console.log(this.age);
+   }
+}
+
+var age = 20;
+person.foo();
+*/
+
+
+// Деструктуризация
+
+/*
+const user = {
+   name: "egor",
+   age: 24,
+   email: "mail.ru",
+   phone: "+380660570253"
+}
+
+
+let { name, age, ...contacts } = user;
+console.log(name, age, contacts);
+*/
+
+/*
+let users = ["egor", "kirill", "toma"];
+
+let [e, k, t] = users;
+console.log(e);
+*/
+
+/*
+let users = [];
+let idx;
+for (let i = 0; i < 4; i++) {
+   users[i] = prompt();
+   if (users[i] == "Киррил") {
+      idx = i;
+   }
+}
+
+let us = [];
+let j = 0;
+// Антон Маша Киррил Вася
+for (let i = idx; i < users.length; i++) {
+   us[j] = users[i];
+   j++;
+}
+
+console.log(users);
+console.log(us);
+
+//{Антон Маша} / {Киррил Вася}
+*/
+
+/*
+let x = 5;
+let y = 3;
+
+console.log(x);
+console.log(y);
+
+[x, y] = [y, x]
+
+
+console.log(x);
+console.log(y);
+*/
+
+/*
+let people = [
+   { name: "Tom", age: 34 },
+   { name: "Bob", age: 23 },
+   { name: "Sam", age: 32 }
+];
+
+let [{ name }] = people;
+console.log(name)
+*/
+
+
