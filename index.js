@@ -10,65 +10,65 @@ function Car(model, motor, price, year) {
    }
 }
 
-function CalculatorCar(sumFund = 0, sumExcise = 0, sumToll = 0, sumTax = 0, result = 0, all = 0) {
+function CalculatorCar(sumFund, sumExcise = 0, sumToll = 0, sumTax = 0, result = 0, all = 0) {
    let _sumFund = sumFund;
    let _sumExcise = sumExcise;
    let _sumToll = sumToll;
    let _sumTax = sumTax;
    let _result = result;
    let _all = all;
-   getPensionFund = (car) => {
-      if (_price <= 12500) {
-         _sumFund = _price * 0.03;
-         console.log(`Пенсійний фонд: ${Math.round(_sumFund)}$`);
-      } else if (12500 >= _price || _price <= 22000) {
-         _sumFund = _price * 0.04;
-         console.log(`Пенсійний фонд: ${Math.round(_sumFund)}$`);
-      } else if (_price >= 22000) {
-         _sumFund = _price * 0.05
-         console.log(`Пенсійний фонд: ${Math.round(_sumFund)}$`);
+   this.getPensionFund = function (cars) {
+      if (cars._price <= 12500) {
+         _sumFund = cars._price * 0.03;
+         return `Пенсійний фонд: ${Math.round(_sumFund)}$`;
+      } else if (12500 >= cars._price || cars._price <= 22000) {
+         _sumFund = cars._price * 0.04;
+         return `Пенсійний фонд: ${Math.round(_sumFund)}$`;
+      } else if (cars._price >= 22000) {
+         _sumFund = cars._price * 0.05
+         return `Пенсійний фонд: ${Math.round(_sumFund)}$`;
       } else {
-         console.log("error");
+         return `error`;
       }
    };
-   this.getExcise = () => {
-      if (_motor <= 3.0) {
-         _sumExcise = 50 * _motor * (2021 - _year);
-         console.log(`Акциз: ${Math.round(_sumExcise)}$`);
-      } else if (_motor >= 3.0) {
-         _sumExcise = 100 * _motor * (2021 - _year);
-         console.log(`Акциз: ${Math.round(_sumExcise)}$`);
+   getExcise = (cars) => {
+      if (cars._motor <= 3.0) {
+         _sumExcise = 50 * cars._motor * (2021 - cars._year);
+         return `Акциз: ${Math.round(_sumExcise)}$`;
+      } else if (cars._motor >= 3.0) {
+         _sumExcise = 100 * cars._motor * (2021 - cars._year);
+         return `Акциз: ${Math.round(_sumExcise)}$`;
       } else {
-         console.log("error");
+         return `error`;
       }
    };
-   this.getToll = () => {
-      _sumToll = _price * 0.1;
-      console.log(`Мито: ${Math.round(_sumToll)}$`)
+   getToll = (cars) => {
+      _sumToll = cars._price * 0.1;
+      return `Мито: ${Math.round(_sumToll)}$`;
    };
-   this.getTax = () => {
-      _sumTax = _price + _sumExcise + _sumToll;
+   getTax = (cars) => {
+      _sumTax = cars._price + _sumExcise + _sumToll;
       _sumTax *= 0.2;
-      console.log(`ПДВ: ${Math.round(_sumTax)}$`);
+      return `ПДВ: ${Math.round(_sumTax)}$`;
    };
 
-   this.getPriceCar = () => {
+   getPriceCar = () => {
       _result = _sumExcise + _sumToll + _sumTax + _sumFund;
-      console.log(`Сума розтаможки авто: ${Math.round(_result)}$`);
+      return `Сума розтаможки авто: ${Math.round(_result)}$`;
    };
 
-   this.getAll = (car) => {
+   getAll = (cars) => {
       s = getPensionFund(car)
-      _all = _price + _result;
-      //console.log(`Цена авто с розтаможкою: ${Math.round(_all)}$`);
-      return `Цена авто с розтаможкою: ${Math.round(_all)}$`
+      _all = cars._price + _result;
+      return `Цена авто с розтаможкою: ${Math.round(_all)}$`;
    };
 }
 
-
 let cars = [];
 
-calculator = new CalculatorCar(6,2,3,3,2)
+let calculator = new CalculatorCar();
+
+let nameModel;
 
 console.log("1 - Добавить авто ");
 console.log("2 - Посмотреть список авто");
@@ -91,12 +91,18 @@ while (!exit) {
          break;
       }
       case 3: {
-         //nameMark = prompt
-         //for of перебирает все модели == name
-            //console.log(calculator.all(car))
+         nameModel = prompt("ведите модель автомобиля:");
+         for (arr of cars) {
+            if (arr._model === nameModel) {
+               console.log(calculator.getPensionFund(arr));
+            }
+         }
          break;
       }
       case 4: {
+         for (key of cars) {
+            console.log(calculator.getPensionFund(key));
+         }
          break;
       }
       case 5: {
@@ -381,4 +387,5 @@ let [{ name }] = people;
 console.log(name)
 */
 
+//=========== ДЗ =========\\
 
