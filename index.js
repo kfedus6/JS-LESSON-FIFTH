@@ -127,7 +127,6 @@ console.log(sum.hello)
 
 call() apply()
 */
-
 /*
 function sum(x1, x2) {
    return x1 + x2;
@@ -217,7 +216,6 @@ anton.go();
 kiril_student.work();
 */
 
-
 //Animal, dog, riba, popygai
 /*
 function Animal(eyes, animalName, age) {
@@ -291,7 +289,6 @@ let porsche = new Porsche("Porsche", 82);
 porsche.display();
 Calculator.call(porsche);
 */
-
 /*
 'use strict'
 function foo() {
@@ -302,7 +299,6 @@ function foo() {
 var x = 'x15';
 foo();
 */
-
 /*
 let person = {
    age: 15,
@@ -315,9 +311,7 @@ var age = 20;
 person.foo();
 */
 
-
 // Деструктуризация
-
 /*
 const user = {
    name: "egor",
@@ -326,18 +320,15 @@ const user = {
    phone: "+380660570253"
 }
 
-
 let { name, age, ...contacts } = user;
 console.log(name, age, contacts);
 */
-
 /*
 let users = ["egor", "kirill", "toma"];
 
 let [e, k, t] = users;
 console.log(e);
 */
-
 /*
 let users = [];
 let idx;
@@ -361,7 +352,6 @@ console.log(us);
 
 //{Антон Маша} / {Киррил Вася}
 */
-
 /*
 let x = 5;
 let y = 3;
@@ -371,11 +361,9 @@ console.log(y);
 
 [x, y] = [y, x]
 
-
 console.log(x);
 console.log(y);
 */
-
 /*
 let people = [
    { name: "Tom", age: 34 },
@@ -388,4 +376,46 @@ console.log(name)
 */
 
 //=========== ДЗ =========\\
+/*
+const car = {
+   color: "black",
+   speed: 320,
+   model: "Aston Martin",
+   country: "United Kingdom"
+}
 
+let { color } = car;
+console.log(color);
+let { speed } = car;
+console.log(speed);
+let { model } = car;
+console.log(model);
+let { country } = car;
+console.log(country);
+*/
+/*
+let numbers = [];
+let numbers_2 = [];
+let num = +prompt("сколько значений вы хотите вести");
+let num_2;
+for (let i = 0; i < num; i++) {
+   numbers[i] = +prompt("ведите число:")
+   if (numbers[i] === 0) {
+      num_2 = i;
+   }
+}
+
+console.log(numbers);
+console.log(numbers_2);
+
+let k = 0;
+for (let i = num_2; i < numbers.length; i++) {
+   numbers_2[k] = numbers[i];
+   k++;
+}
+
+let result = numbers.reduce((a, b) => a + b, 0)
+let result_2 = numbers_2.reduce((a, b) => a + b, 0)
+console.log(result);
+console.log(result_2);
+*/
