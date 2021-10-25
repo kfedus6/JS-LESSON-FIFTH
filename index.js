@@ -376,23 +376,33 @@ console.log(name)
 */
 
 //=========== ДЗ =========\\
-/*
-const car = {
-   color: "black",
-   speed: 320,
-   model: "Aston Martin",
-   country: "United Kingdom"
-}
 
-let { color } = car;
-console.log(color);
-let { speed } = car;
-console.log(speed);
-let { model } = car;
-console.log(model);
-let { country } = car;
-console.log(country);
-*/
+// const car = {
+//    color: "black",
+//    speed: 320,
+//    model: "Aston Martin",
+//    country: "United Kingdom"
+// }
+
+// let { color, speed, model, country } = car;
+// console.log(color);
+// console.log(speed);
+// console.log(model);
+// console.log(country);
+
+// const arr = Object.entries(car);
+
+// arr.forEach(([key, value]) => {
+//    console.log(`${key}: ${value}`);
+// })
+
+// arr.map(([key, value]) => {
+//    console.log(`${key}: ${value}`);
+// })
+
+// for (let [key, value] of Object.entries(car)) {
+//    console.log(`${key}: ${value}`);
+// };
 /*
 let numbers = [];
 let numbers_2 = [];
@@ -418,4 +428,41 @@ let result = numbers.reduce((a, b) => a + b, 0)
 let result_2 = numbers_2.reduce((a, b) => a + b, 0)
 console.log(result);
 console.log(result_2);
+*/
+/*
+let index;
+let numbers = [];
+let num = +prompt("сколько значений вы хотите вести");
+for (let i = 0; i < num; i++) {
+   numbers[i] = +prompt("ведите число:")
+   index = numbers.findIndex(n => n === 0);
+}
+let numbers_2 = numbers.splice(index);
+console.log(numbers);
+console.log(numbers_2);
+
+let result = numbers.reduce((a, b) => a + b, 0);
+let result_2 = numbers_2.reduce((a, b) => a + b, 0);
+console.log(result);
+console.log(result_2);
+*/
+/*
+let cars = [
+   {
+      color: "blue",
+      speed: 260,
+      model: "mercedes",
+      country: "germany"
+   },
+   {
+      color_1: "yellow",
+      speed_1: 320,
+      model_1: "ferrari",
+      country_1: "itali"
+   }
+]
+
+let [{ model }, { country_1 }] = cars;
+let car = { model, country_1 };
+console.log(car);
 */
