@@ -466,3 +466,106 @@ let [{ model }, { country_1 }] = cars;
 let car = { model, country_1 };
 console.log(car);
 */
+
+/*
+function User(name) {
+   this.name = name;
+}
+let kolya = new User("kolya");
+
+class Person {
+   constructor(name = "default", age = 0) {
+      this.age = age
+      this.name = name;
+   }
+   display() {
+      console.log(this.name, this.age);
+   }
+}
+
+kolya_person = new Person("dima");
+kolya_person.display();
+
+
+class Car {
+   constructor(model = "default", color = "default") {
+      this.model = model;
+      this.color = color;
+   }
+   info() {
+      console.log(this.model, this.color);
+   }
+}
+
+let car = new Car();
+car.info();
+*/
+
+/*
+class Phone {
+   constructor(model, price) {
+      this.#model = model;
+      this.#price = price;
+   }
+
+   print() {
+      console.log(`Model: ${this.#model}, Price: ${this.#price}`)
+   }
+}
+
+
+let iphone = new Phone("Iphone", 3000);
+iphone.print();
+iphone.print();
+*/
+/*
+class Book {
+   #year;
+   #avtor;
+   #countList;
+   #price;
+   constructor(year, avtor, countList, price) {
+      this.#year = year;
+      this.#avtor = avtor;
+      this.#countList = countList;
+      this.setPrice(price);
+   }
+
+   getYear() {
+      return this.#year
+   }
+   getAvtor() {
+      return this.#avtor
+   }
+   getPrice() {
+      return this.#price;
+   }
+   setPrice(price) {
+      this.#price = price;
+      if (price <= 0) {
+         this.#price = "free";
+      }
+   }
+
+   #yearChek() {
+      if (this.#year > new Date().getFullYear()) {
+         this.#year = "Не верно указанный год"
+      }
+   }
+
+   print() {
+      this.#yearChek()
+      console.log(this.#avtor, this.#year, this.#countList, this.#price)
+   }
+}
+
+let book = new Book(2032, "Шевченко", 350, -500);
+book.print();
+book.setPrice(Number(prompt()));
+book.print();
+book.getYear();
+book.getAvtor();
+book.getPrice();
+book.setPrice(book.getPrice() + 5);
+book.print();
+*/
